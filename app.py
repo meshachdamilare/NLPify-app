@@ -1,5 +1,7 @@
+import joblib
 import streamlit as st
 from PIL import Image
+import joblib
 
 import nltk
 nltk.download('punkt')
@@ -14,13 +16,15 @@ from sumy.summarizers.lex_rank import LexRankSummarizer
 
 
 def text_analyzer(my_text):
-    nlp = spacy.load('en_core_web_sm')
+    # nlp = spacy.load('en_core_web_sm')
+    nlp = joblib.load('asset/en_core_web_sm')
     docx = nlp(my_text)
     all_data = [ f"Tokens: {token.text}, \n Lemma: {token.lemma_}" for token in docx]
     return all_data
 
 def entity_analyzer(my_text):
-    nlp = spacy.load('en_core_web_sm')
+    # nlp = spacy.load('en_core_web_sm')
+    nlp = joblib.load('asset/en_core_web_sm')
     docx = nlp(my_text)
     entities = [f"{entity.text}: {entity.label_}" for entity in docx.ents]
     return entities
