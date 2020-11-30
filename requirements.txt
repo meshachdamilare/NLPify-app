@@ -1,6 +1,5 @@
-gensim==3.8.3
 nltk==3.5
-spacy==2.3.2
+gensim==3.8.3
 sumy==0.8.1
 streamlit==0.70.0
 textblob==0.15.3
