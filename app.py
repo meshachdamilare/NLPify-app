@@ -1,8 +1,4 @@
 import streamlit as st
-
-#spacy pkg
-import spacy
-spacy.load('en_core_web_sm')
 #nltk pkg
 import nltk
 nltk.download('punkt')
@@ -22,13 +18,6 @@ def text_analyzer(my_text):
     zen = blob.words
     all_data = ["Tokens: {}, \n Lemma: {}".format(z, z.lemmatize()) for z in zen]
     return all_data
-
-def entity_analyzer(my_text):
-    nlp = spacy.load("en_core_web_sm")
-    docx = nlp(my_text)
-    entities = [f"{entity.text}: {entity.label_}" for entity in docx.ents]
-    return entities
-
 
 def sumy_sumarizer(docx):
     parser = PlaintextParser.from_string(docx, Tokenizer('english'))
@@ -51,13 +40,6 @@ def main():
             nlp_result = text_analyzer(message)
             st.json(nlp_result)
 
-    # Name Entity
-    if st.checkbox("Show Named Entities"):
-        st.subheader("Extract Entities From Your Text")
-        message = st.text_area("Enter Your Text", "Type Here")
-        if st.button("Extract"):
-            nlp_result = entity_analyzer(message)
-            st.json(nlp_result)
 
     # Sentiment Analysis
     if st.checkbox("Show Sentiment Analysis"):
