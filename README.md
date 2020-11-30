@@ -8,3 +8,6 @@ The app offers the following:
   - Get Named Entities of your words
   - Get Sentiment analysis of your words
   - Get summary of your words
+
+## App link
+[App url](https://nlpify-app.herokuapp.com/)
