@@ -1,11 +1,13 @@
-import joblib
 import streamlit as st
-from PIL import Image
-import joblib
 
+#spacy pkg
+import spacy
+spacy.load('en_core_web_sm')
+#nltk pkg
 import nltk
 nltk.download('punkt')
-import spacy
+nltk.download('wordnet')
+
 from textblob import TextBlob
 # gensim pkg
 from gensim.summarization import summarize
@@ -16,13 +18,13 @@ from sumy.summarizers.lex_rank import LexRankSummarizer
 
 
 def text_analyzer(my_text):
-    nlp = spacy.load('en_core_web_sm')
-    docx = nlp(my_text)
-    all_data = [ f"Tokens: {token.text}, \n Lemma: {token.lemma_}" for token in docx]
+    blob = TextBlob(my_text)
+    zen = blob.words
+    all_data = ["Tokens: {}, \n Lemma: {}".format(z, z.lemmatize()) for z in zen]
     return all_data
 
 def entity_analyzer(my_text):
-    nlp = spacy.load('en_core_web_sm')
+    nlp = spacy.load("en_core_web_sm")
     docx = nlp(my_text)
     entities = [f"{entity.text}: {entity.label_}" for entity in docx.ents]
     return entities
