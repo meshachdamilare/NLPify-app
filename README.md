@@ -10,4 +10,4 @@ The app offers the following:
   - Get summary of your words
 
 ## App link
-[App url] (https://nlpify-app.herokuapp.com/)
+[App url](https://nlpify-app.herokuapp.com/)
