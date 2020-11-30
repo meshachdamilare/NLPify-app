@@ -1,8 +1,8 @@
 ## NLPify-app
 
-A simple NLP app built with streamlit.
+**A simple NLP app built with streamlit.**
 
-The app offers the following
+The app offers the following:
 
   - Get tokens of your wordds
   - Get Named Entities of your words
