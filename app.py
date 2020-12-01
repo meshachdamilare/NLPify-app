@@ -74,10 +74,10 @@ def main():
 
     st.sidebar.subheader('About the App')
     st.sidebar.markdown('## NLP-ify App with Streamlit')
-    st.sidebar.info("#### Get the Tokens of your words")
-    st.sidebar.info("#### Get the Named-Entities of your words")
-    st.sidebar.info("#### Get the Sentiment Analysis of your words")
-    st.sidebar.info("#### Get the Summary of your words")
+    st.sidebar.info("#### Get the Tokens of your text")
+    st.sidebar.info("#### Get the Named-Entities of your text")
+    st.sidebar.info("#### Get the Sentiment Analysis of your text")
+    st.sidebar.info("#### Get the Summary of your text")
     
 if __name__ == '__main__':
     main()
