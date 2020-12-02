@@ -35,8 +35,8 @@ def main():
     # Tokenization
     if st.checkbox("Show Tokens and Lemmatization"):
         st.subheader("Tokenize your text")
-        message = st.text_area("Enter Your Text", "Type Here")
-        if st.button("Analyze"):
+        message = st.text_area("Enter Your Text", "Type Here", key = "1")
+        if st.button("Analyze", key = "1"):
             nlp_result = text_analyzer(message)
             st.json(nlp_result)
 
@@ -44,8 +44,8 @@ def main():
     # Sentiment Analysis
     if st.checkbox("Show Sentiment Analysis"):
         st.subheader("Sentiment of Your Text")
-        message = st.text_area("Enter Your Text", "Type Here")
-        if st.button("Analyze"):
+        message = st.text_area("Enter Your Text", "Type Here", key = "2")
+        if st.button("Analyze", key ='2'):
             blob = TextBlob(message)
             result_sentiment = blob.sentiment
             st.success(result_sentiment)
@@ -54,23 +54,23 @@ def main():
 
     if st.checkbox("Show Text Summarization"):
         st.subheader("Summarize Your Text")
-        message = st.text_area("Enter Your Text", "Type Here")
+        message = st.text_area("Enter Your Text", "Type Here", key = "3")
         summary = st.selectbox("Choose your summarizer", ('gensim', 'sumy'))
-        if st.button("Summarize"):
+        if st.button("Summarize", key='3'):
             if summary == 'gensim':
                 try:
                     st.text("Using Gensim...")
                     summary_result = summarize(message)
                     st.success(summary_result)
-                except:
-                    st.exception("Input must have more than one sentence.")
+                except ValueError:
+                    st.error("Input must have more than one sentence.")
             elif summary == 'sumy':
                 try:
                     st.text("Using Sumy...")
                     summary_result = sumy_sumarizer(message)
                     st.success(summary_result)
                 except:
-                    st.exception("Input correct things.")
+                    st.error("Input correct things.")
 
     st.sidebar.subheader('About the App')
     st.sidebar.markdown('## NLP-ify App with Streamlit')
